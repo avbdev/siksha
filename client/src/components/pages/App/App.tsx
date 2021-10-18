@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { apps } from "../../../mock/mock";
 import { getData } from "../../../utils/endpoints";
-import { GetEndPoint } from "../../../utils/endpoints/GetEndPoints";
-import { Table } from "../../atoms/Table";
+import { GetEndPoints } from "../../../utils/endpoints/GetEndPoints";
+import { Table } from "../../atoms/Table/Table";
+import { Toggle } from "../../atoms/Toggle/Toggle";
 import "./App.css";
 
 interface IApp {}
@@ -9,15 +11,39 @@ interface IApp {}
 export const App: React.FC<IApp> = () => {
   const styles = {};
 
-  const { Users } = GetEndPoint;
+  const { Users } = GetEndPoints;
+
+  console.log("Statement 001");
+  console.log("Statement 002");
+  console.log("Statement 003");
+  console.log("Statement 004");
+  console.log("Statement 005");
 
   useEffect(() => {
-    const c = getData(Users);
-    console.log(
-      c.then((data) => {
-        console.log("data", data);
-      })
-    );
+    // const c = getData(Users);
+    // console.log(
+    //   c.then((data) => {
+    //     console.log("data", data);
+    //   })
+    // );
+
+    console.log("Effect 001");
+  }, []);
+
+  useEffect(() => {
+    console.log("Effect 002");
+  }, []);
+
+  useEffect(() => {
+    console.log("Effect 003");
+  }, []);
+
+  useEffect(() => {
+    console.log("Effect 004");
+  }, []);
+
+  useEffect(() => {
+    console.log("Effect 005");
   }, []);
 
   return (
@@ -55,10 +81,18 @@ const ContentArea: React.FC<IContentArea> = () => {
     // overflow: "hidden",
   };
 
+  const [isToggled, setIsToggled] = useState<boolean>(true);
   return (
     <div style={styles}>
       {/* Content Area */}
-      <Table />
+      {/* <Table /> */}
+      <Table items={apps} />
+      {/* <Toggle /> */}
+      <Toggle
+        rounded
+        isToggled={isToggled}
+        onToggle={() => setIsToggled(!isToggled)}
+      />
     </div>
   );
 };

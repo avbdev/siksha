@@ -1,10 +1,10 @@
 import axios from "axios";
 import { DeleteEndPoint } from "./DeleteEndPoints";
-import { GetEndPoint } from "./GetEndPoints";
+import { GetEndPoints } from "./GetEndPoints";
 import { PatchEndPoint } from "./PatchEndPoints";
 import { PostEndPoint } from "./PostEndPoints";
 
-export const getData = (endpoint: GetEndPoint) => {
+export const getData = (endpoint: GetEndPoints) => {
   return axios
     .get(endpoint)
     .then((res: any) => {

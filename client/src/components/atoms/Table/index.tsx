@@ -2,11 +2,11 @@ import React, { useEffect, useMemo, useState } from "react";
 import { apps } from "../../../mock/mock";
 
 export interface IApps {
-  appName: string;
-  appId: string;
-  owner: string;
-  usersCount: number;
-  id?: any;
+  AppName: string;
+  AppId: string;
+  Owner: string;
+  UsersCount: number;
+  __Id?: any;
 }
 
 interface ITableHeader {
@@ -48,7 +48,7 @@ export const Table: React.FC = () => {
 
   const handleAppNameFilter = (data?: any, data2?: any) => {
     const filteredApps = upApps.filter((item) =>
-      item.appName.toLowerCase().includes(data.target.value.toLowerCase())
+      item.AppName.toLowerCase().includes(data.target.value.toLowerCase())
     );
 
     setAppName(data.target.value);
@@ -57,7 +57,7 @@ export const Table: React.FC = () => {
 
   const handleAppIdFilter = (data?: any, data2?: any) => {
     const filteredApps = upApps.filter((item) =>
-      item.appId.toLowerCase().includes(data.target.value.toLowerCase())
+      item.AppId.toLowerCase().includes(data.target.value.toLowerCase())
     );
 
     setAppId(data.target.value);
@@ -66,7 +66,7 @@ export const Table: React.FC = () => {
 
   const handleAppOwnerFilter = (data?: any, data2?: any) => {
     const filteredApps = upApps.filter((item) =>
-      item.owner.toLowerCase().includes(data.target.value.toLowerCase())
+      item.Owner.toLowerCase().includes(data.target.value.toLowerCase())
     );
 
     setAppOwner(data.target.value);
@@ -125,10 +125,10 @@ export const Table: React.FC = () => {
             updatedApps.map((data, index) => {
               return (
                 <tr key={index}>
-                  <td>{data.appName}</td>
-                  <td>{data.appId}</td>
-                  <td>{data.owner}</td>
-                  <td>{data.usersCount}</td>
+                  <td>{data.AppName}</td>
+                  <td>{data.AppId}</td>
+                  <td>{data.Owner}</td>
+                  <td>{data.UsersCount}</td>
                 </tr>
               );
             })}

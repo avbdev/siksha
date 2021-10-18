@@ -48,7 +48,7 @@ export const Table: React.FC = () => {
 
   const handleAppNameFilter = (data?: any, data2?: any) => {
     const filteredApps = upApps.filter((item) =>
-      item.appName.toLowerCase().startsWith(data.target.value.toLowerCase())
+      item.appName.toLowerCase().includes(data.target.value.toLowerCase())
     );
 
     setAppName(data.target.value);
@@ -57,7 +57,7 @@ export const Table: React.FC = () => {
 
   const handleAppIdFilter = (data?: any, data2?: any) => {
     const filteredApps = upApps.filter((item) =>
-      item.appId.toLowerCase().startsWith(data.target.value.toLowerCase())
+      item.appId.toLowerCase().includes(data.target.value.toLowerCase())
     );
 
     setAppId(data.target.value);
@@ -66,7 +66,7 @@ export const Table: React.FC = () => {
 
   const handleAppOwnerFilter = (data?: any, data2?: any) => {
     const filteredApps = upApps.filter((item) =>
-      item.owner.toLowerCase().startsWith(data.target.value.toLowerCase())
+      item.owner.toLowerCase().includes(data.target.value.toLowerCase())
     );
 
     setAppOwner(data.target.value);
